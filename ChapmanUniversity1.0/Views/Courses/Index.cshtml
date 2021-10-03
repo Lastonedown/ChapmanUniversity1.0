@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ChapmanUniversity1._0.Models.StudentEnrollmentViewModel>
+
+@{
+    ViewData["CourseName"] = "Index";
+}
+
+<h1>Courses</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CourseNumber)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table> 
+<div>
+    @Html.ActionLink("Register", "Create", "Courses")
+</div>
+<div>
+    @Html.ActionLink("Back", "Details", "Faculty")
+</div>

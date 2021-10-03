@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ChapmanUniversity1._0.Models.StudentEnrollmentViewModel>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Registered Courses</h1>
+
+<p>
+    <a asp-action="Create">Register</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SemesterSeason)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SemesterSeason)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { @id = item.EnrollmentId }) |
+                @Html.ActionLink("UnEnroll", "Delete", new { @id = item.EnrollmentId })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Back", "Details", "Students")
+</div>
+
